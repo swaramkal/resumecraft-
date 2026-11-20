@@ -1,0 +1,200 @@
+/* Builder Layout & A4 Sheet Engine */
+.builder-toolbar {
+  background: rgba(12, 16, 29, 0.92);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 0.7rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.toolbar-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.builder-workspace {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  min-height: calc(100vh - 128px);
+}
+
+.editor-pane {
+  background: rgba(11, 15, 27, 0.88);
+  border-right: 1px solid var(--border-glass);
+  padding: 1.25rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 128px);
+}
+
+.preview-pane {
+  background: #090d16;
+  padding: 1.75rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: calc(100vh - 128px);
+}
+
+.section-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.9rem;
+  overflow: hidden;
+}
+
+.section-card-header {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.section-card-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.8rem;
+}
+
+.icon-btn:hover {
+  color: #fff;
+  border-color: var(--accent-indigo);
+}
+
+.section-card-body {
+  padding: 1rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.section-card.collapsed .section-card-body {
+  display: none;
+}
+
+.entry-item {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.overflow-banner {
+  width: 100%;
+  max-width: 794px;
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fcd34d;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  display: none;
+}
+
+.overflow-banner.visible {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Exact A4 Paper (210mm x 297mm @ 96dpi = 794px x 1123px) */
+.a4-scaler {
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+}
+
+.resume-sheet {
+  width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  position: relative;
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.42;
+  font-size: 13px;
+  --tpl-accent: #2563eb;
+}
+
+.resume-sheet.compact-mode {
+  font-size: 11.6px;
+  line-height: 1.32;
+}
+
+.mobile-view-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  background: var(--gradient-brand);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.55);
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .builder-workspace {
+    grid-template-columns: 1fr;
+  }
+  .editor-pane, .preview-pane {
+    max-height: none;
+  }
+  .preview-pane.mobile-hidden,
+  .editor-pane.mobile-hidden {
+    display: none;
+  }
+  .mobile-view-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .resume-sheet, .resume-sheet * { visibility: visible; }
+  .resume-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: none;
+    width: 210mm;
+  }
+}

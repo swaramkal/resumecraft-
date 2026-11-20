@@ -1,0 +1,200 @@
+/* Template Gallery & Structural Resume Layouts */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 2.25rem;
+}
+
+.filter-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  padding: 0.48rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--gradient-brand);
+  color: #fff;
+  border-color: transparent;
+}
+
+.template-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-indigo);
+}
+
+.tpl-thumb-wrapper {
+  height: 280px;
+  background: #0d1323;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.tpl-thumb-scale {
+  transform: scale(0.34);
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.tpl-card-body {
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tpl-card-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 5, 10, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #0f1526;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-glass);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 1.25rem;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  background: #080b14;
+}
+
+/* Distinct Structural Template Styles inside .resume-sheet */
+.rs-sec-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tpl-accent);
+  margin-bottom: 6px;
+  font-size: 0.92em;
+}
+
+.rs-entry {
+  margin-bottom: 8px;
+}
+
+.rs-entry-head {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.rs-entry-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #475569;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.rs-bullets {
+  padding-left: 16px;
+  margin: 2px 0;
+}
+
+.rs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.rs-tag {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+/* Layout Variants */
+.tpl-layout-classic { padding: 34px 40px; }
+.tpl-layout-classic .rs-header { text-align: center; border-bottom: 2px solid var(--tpl-accent); padding-bottom: 12px; margin-bottom: 14px; }
+.tpl-layout-classic .rs-sec-title { border-bottom: 1px solid #cbd5e1; padding-bottom: 2px; }
+
+.tpl-layout-sidebar-left { display: grid; grid-template-columns: 245px 1fr; min-height: 1123px; }
+.tpl-layout-sidebar-left .rs-side { background: var(--tpl-accent); color: #ffffff; padding: 28px 20px; }
+.tpl-layout-sidebar-left .rs-side .rs-sec-title { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,0.35); }
+.tpl-layout-sidebar-left .rs-side .rs-tag { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.3); color: #fff; }
+.tpl-layout-sidebar-left .rs-main { padding: 28px 28px; }
+
+.tpl-layout-sidebar-right { display: grid; grid-template-columns: 1fr 240px; min-height: 1123px; }
+.tpl-layout-sidebar-right .rs-main { padding: 30px 28px; }
+.tpl-layout-sidebar-right .rs-side { background: #f8fafc; border-left: 3px solid var(--tpl-accent); padding: 30px 20px; }
+
+.tpl-layout-banner { padding: 0; }
+.tpl-layout-banner .rs-header { background: var(--tpl-accent); color: #fff; padding: 28px 38px; display: flex; justify-content: space-between; align-items: center; }
+.tpl-layout-banner .rs-body { padding: 24px 38px; }
+
+.tpl-layout-swiss { padding: 32px 36px; }
+.tpl-layout-swiss .rs-sec-row { display: grid; grid-template-columns: 155px 1fr; gap: 16px; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-bottom: 10px; }
+
+.tpl-layout-timeline { padding: 32px 38px; }
+.tpl-layout-timeline .rs-entry { border-left: 2px solid var(--tpl-accent); padding-left: 12px; position: relative; }
+
+.tpl-layout-executive { padding: 36px 42px; font-family: Georgia, 'Times New Roman', serif; }
+.tpl-layout-executive .rs-header { border-top: 4px solid var(--tpl-accent); border-bottom: 1px solid var(--tpl-accent); padding: 14px 0; margin-bottom: 14px; }
+
+.tpl-layout-tech { padding: 28px 34px; font-family: 'Courier New', Courier, monospace; }
+.tpl-layout-tech .rs-header { background: #0f172a; color: #38bdf8; padding: 18px 22px; border-radius: 6px; margin-bottom: 14px; }
+.tpl-layout-tech .rs-sec-title::before { content: "// "; }

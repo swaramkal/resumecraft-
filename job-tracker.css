@@ -1,0 +1,64 @@
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+
+.tracker-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-glass);
+}
+
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-surface);
+  font-size: 0.9rem;
+}
+
+.tracker-table th,
+.tracker-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.status-badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.st-Saved { background: rgba(148,163,184,0.2); color: #cbd5e1; }
+.st-Applied { background: rgba(59,130,246,0.2); color: #93c5fd; }
+.st-Interview { background: rgba(168,85,247,0.2); color: #d8b4fe; }
+.st-Assessment { background: rgba(245,158,11,0.2); color: #fcd34d; }
+.st-Offer { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+.st-Rejected { background: rgba(244,63,94,0.2); color: #fda4af; }
+
+@media (max-width: 900px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+}

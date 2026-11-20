@@ -1,0 +1,16 @@
+.pf-grid {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 1.75rem;
+}
+
+.pf-preview-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  min-height: 680px;
+}
+
+@media (max-width: 980px) {
+  .pf-grid { grid-template-columns: 1fr; }
+}
